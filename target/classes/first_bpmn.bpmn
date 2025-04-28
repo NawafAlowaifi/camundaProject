@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_04qja4b" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="first_bpmn_execute" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0fkmkl4</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_0qq6042">
+      <bpmn:incoming>Flow_0pyntj6</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0fkmkl4" sourceRef="StartEvent_1" targetRef="Activity_0dq8xy7" />
+    <bpmn:sequenceFlow id="Flow_0pyntj6" sourceRef="Activity_0dq8xy7" targetRef="Event_0qq6042" />
+    <bpmn:scriptTask id="Activity_0dq8xy7" name="Print a Message" scriptFormat="juel">
+      <bpmn:incoming>Flow_0fkmkl4</bpmn:incoming>
+      <bpmn:outgoing>Flow_0pyntj6</bpmn:outgoing>
+      <bpmn:script>${execution.setVariable('msg', 'coming from camunda')}</bpmn:script>
+    </bpmn:scriptTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="first_bpmn_execute">
+      <bpmndi:BPMNEdge id="Flow_0fkmkl4_di" bpmnElement="Flow_0fkmkl4">
+        <di:waypoint x="188" y="97" />
+        <di:waypoint x="320" y="97" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0pyntj6_di" bpmnElement="Flow_0pyntj6">
+        <di:waypoint x="420" y="97" />
+        <di:waypoint x="582" y="97" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="152" y="79" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0qq6042_di" bpmnElement="Event_0qq6042">
+        <dc:Bounds x="582" y="79" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1joobdc_di" bpmnElement="Activity_0dq8xy7">
+        <dc:Bounds x="320" y="57" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
