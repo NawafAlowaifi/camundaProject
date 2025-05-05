@@ -17,12 +17,22 @@ public class HomeController {
     @RequestMapping(value = "/execute",method = RequestMethod.GET)
     public String execute(){
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
-       ProcessInstantiationBuilder instance= processEngine.getRuntimeService().createProcessInstanceByKey("first_bpmn_execute");
+       ProcessInstantiationBuilder instance= processEngine.getRuntimeService().createProcessInstanceByKey("Process_012njgq");
        instance.setVariable("item", "Computer");
        instance.businessKey("execure-endpoint");
        instance.executeWithVariablesInReturn();
         return "executed";
     }
+    @RequestMapping(value = "/tasks",method = RequestMethod.GET)
+    public String tasks(){
+        ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+        ProcessInstantiationBuilder instance= processEngine.getRuntimeService().createProcessInstanceByKey("Process_012njgq");
+//        instance.setVariable("item", "Computer");
+//        instance.businessKey("execure-endpoint");
+        instance.executeWithVariablesInReturn();
+        return "executed";
+    }
+
 
 
 }

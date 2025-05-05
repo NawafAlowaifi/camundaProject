@@ -9,3 +9,7 @@ camunda:
     generic-properties:
       properties:
         historyTimeToLive: 5
+
+
+camunda.bpm.process-engine-plugins:
+  - class: org.camunda.connect.plugin.impl.ConnectProcessEnginePlugin
